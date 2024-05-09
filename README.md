@@ -1,2 +1,2 @@
 # LeetCode
-A collection of LeetCode problems and my solutions. This covers python and SQL problems.
+A collection of Python and SQL problems with my solutions from LeetCode.
