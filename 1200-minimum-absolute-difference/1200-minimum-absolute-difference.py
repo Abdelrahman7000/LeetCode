@@ -11,23 +11,38 @@ class Solution:
 
         
         arr = sorted(arr)
-        pairs=[]
+        res=[]
         min_diff=0
+        # for i in range(len(arr)-1):
+        #     diff=abs(arr[i+1]-arr[i])
+        #     if not pairs:
+        #         pairs.append([arr[i],arr[i+1]])
+        #         min_diff=diff
+        #         continue
+        #     if diff==min_diff:
+        #         pairs.append([arr[i],arr[i+1]])
+        #         continue
+        #     if diff > min_diff:
+        #         continue
+        #     pairs.clear()
+        #     min_diff=diff
+        #     pairs.append([arr[i],arr[i+1]])
+    
         for i in range(len(arr)-1):
-            diff=abs(arr[i+1]-arr[i])
-            if not pairs:
-                pairs.append([arr[i],arr[i+1]])
-                min_diff=diff
+            if not res:
+                res.append([arr[i],arr[i+1]])
+                min_diff=arr[i+1]-arr[i]
                 continue
-            if diff==min_diff:
-                pairs.append([arr[i],arr[i+1]])
-                continue
-            if diff > min_diff:
-                continue
-            pairs.clear()
-            min_diff=diff
-            pairs.append([arr[i],arr[i+1]])
-        return pairs
+            if res:
+                if arr[i+1]-arr[i]>min_diff:
+                    continue
+                elif arr[i+1]-arr[i]<min_diff:
+                    res.clear()
+                    min_diff=arr[i+1]-arr[i]
+                    res.append([arr[i],arr[i+1]])
+                else:
+                    res.append([arr[i],arr[i+1]])
+        return res
                 
         
         
